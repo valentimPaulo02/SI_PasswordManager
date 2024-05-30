@@ -1,0 +1,6 @@
+*.env
+app/pyvenv.cfg
+app/Scripts
+app/Lib
+app/Include
+__pycache__
