@@ -38,16 +38,16 @@ def login_user(username, password):
     cursor = conn.cursor()
     
     cursor.execute('''
-    SELECT password FROM users WHERE username = %s
+    SELECT password, user_id FROM users WHERE username = %s
     ''', (username,))
     result = cursor.fetchone()
     
     conn.close()
     
     if result and check_password(result[0], password):
-        return True
+        return result[1]
     else:
-        return False
+        return -1
     
 
 def update_password(username, password, scd_password):

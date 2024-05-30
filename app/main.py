@@ -1,6 +1,9 @@
 from backend.logic.auth import *
+import os
 
 def main():
+    user_id = -1
+
     while True:
         print("1. Register")
         print("2. Login")
@@ -22,7 +25,10 @@ def main():
             username = input("Enter username: ")
             password = input("Enter password: ")
             
-            if login_user(username, password):
+            user_id = login_user(username, password)
+
+            if user_id != -1:
+                print(user_id)
                 print("Login successful.")
             else:
                 print("Invalid username or password.")
