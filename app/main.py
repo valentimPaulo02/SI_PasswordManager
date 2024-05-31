@@ -35,10 +35,11 @@ def main():
 
         elif choice == '3':
             username = input("Enter username: ")
+            old_password = input("Enter old password: ")
             password = input("Enter password: ")
             scd_password = input("Repeat password: ")
             
-            if update_password(username, password, scd_password):
+            if update_password(username, old_password, password, scd_password):
                 print("Password changed.")
             else:
                 print("Couldnt change password.")

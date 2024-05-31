@@ -50,7 +50,7 @@ def login_user(username, password):
         return -1
     
 
-def update_password(username, password, scd_password):
+def update_password(username, old_password, password, scd_password):
     conn = make_connection()
     cursor = conn.cursor()
     
@@ -63,6 +63,10 @@ def update_password(username, password, scd_password):
 
     if(result == None):
         print("Username doesnt exist.")
+        return False
+
+    if(not check_password(result[2], old_password)):
+        print("The old password isn't correct.")
         return False
 
     if(manage_user(username, password, scd_password, False)):
