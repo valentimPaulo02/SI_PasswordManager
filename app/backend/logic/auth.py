@@ -1,10 +1,13 @@
 import mysql.connector
 from backend.database.db import *
 from backend.security.hash import *
+from comps import *
 
 def manage_user(username, password, scd_password, new):
     if(password!=scd_password):
+        space()
         print("Passwords dont match.")
+        print()
         return False
 
     conn = make_connection()
@@ -32,7 +35,6 @@ def manage_user(username, password, scd_password, new):
     finally:
         conn.close()
 
-
 def login_user(username, password):
     conn = make_connection()
     cursor = conn.cursor()
@@ -49,7 +51,6 @@ def login_user(username, password):
     else:
         return -1
     
-
 def update_password(username, old_password, password, scd_password):
     conn = make_connection()
     cursor = conn.cursor()
@@ -62,11 +63,15 @@ def update_password(username, old_password, password, scd_password):
     conn.close()
 
     if(result == None):
+        space()
         print("Username doesnt exist.")
+        print()
         return False
 
     if(not check_password(result[2], old_password)):
+        space()
         print("The old password isn't correct.")
+        print()
         return False
 
     if(manage_user(username, password, scd_password, False)):

@@ -1,14 +1,13 @@
-import mysql.connector
-import os
+import mysql.connector, os
 from mysql.connector import errorcode
 
 def make_connection():
     try:
         conn = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='paulinhomysql',
-            database='password_manager'
+            host=os.environ['DB_HOST'],         # -------------------------- ENV VARIABLE
+            user=os.environ['DB_USER'],         # -------------------------- ENV VARIABLE
+            password=os.environ['DB_PASSWORD'], # -------------------------- ENV VARIABLE
+            database='password_manager' 
         )
         return conn
     
