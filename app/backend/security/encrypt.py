@@ -16,7 +16,7 @@ def decrypt_password(encrypted_password):
     return decrypted_password.decode()
 
 def get_key():
-    key_hex = os.environ['KEY'] # -------------------------- ENV VARIABLE
+    key_hex = '3b8dce6b576ff14a262ed81c94a52d17cfed7a43ef8a12d7e83f40f2d20773c3' # -------------------------- ENV VARIABLE
     key_bytes = bytes.fromhex(key_hex)
     key_base64 = base64.urlsafe_b64encode(key_bytes).decode()
     return key_base64

@@ -110,7 +110,8 @@ def service_display(user_id):
                 if(choice == '-1'):
                     service = input("Enter service name: ")
                     account_username = input("Enter account username: ")
-                    account_password = input("Enter account password: ")
+                    account_password = input("Enter account password: (enter for automatic generation)")
+                    print(account_password)
                     if(create_service(user_id, service, account_username, account_password)):
                         space()
                         print("Successfuly created a new Service")

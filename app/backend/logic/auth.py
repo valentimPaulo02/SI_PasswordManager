@@ -35,6 +35,7 @@ def manage_user(username, password, scd_password, new):
     finally:
         conn.close()
 
+
 def login_user(username, password):
     conn = make_connection()
     cursor = conn.cursor()
@@ -50,7 +51,8 @@ def login_user(username, password):
         return result[1]
     else:
         return -1
-    
+
+
 def update_password(username, old_password, password, scd_password):
     conn = make_connection()
     cursor = conn.cursor()

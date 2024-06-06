@@ -1,10 +1,13 @@
 import mysql.connector
 from backend.database.db import *
 from backend.security.encrypt import *
+from backend.security.password import *
 
 def create_service(user_id, service, username, password):
     conn = make_connection()
     cursor = conn.cursor()
+
+    if(password == ""): password = generate_password()
 
     encrypted_password = encrypt_password(password) 
 

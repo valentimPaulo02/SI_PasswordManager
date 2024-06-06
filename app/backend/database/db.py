@@ -4,9 +4,9 @@ from mysql.connector import errorcode
 def make_connection():
     try:
         conn = mysql.connector.connect(
-            host=os.environ['DB_HOST'],         # -------------------------- ENV VARIABLE
-            user=os.environ['DB_USER'],         # -------------------------- ENV VARIABLE
-            password=os.environ['DB_PASSWORD'], # -------------------------- ENV VARIABLE
+            host='localhost',         # -------------------------- ENV VARIABLE
+            user='root',              # -------------------------- ENV VARIABLE
+            password='paulinhomysql', # -------------------------- ENV VARIABLE
             database='password_manager' 
         )
         return conn
