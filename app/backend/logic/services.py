@@ -40,7 +40,7 @@ def get_services(user_id):
     return result
 
 
-def update_password(password, user_id, service):
+def update_service_password(password, user_id, service):
     conn = make_connection()
     cursor = conn.cursor()
     

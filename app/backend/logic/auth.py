@@ -53,7 +53,7 @@ def login_user(username, password):
         return -1
 
 
-def update_password(username, old_password, password, scd_password):
+def update_user_password(username, old_password, password, scd_password):
     conn = make_connection()
     cursor = conn.cursor()
     

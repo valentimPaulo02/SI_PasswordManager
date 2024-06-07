@@ -68,7 +68,7 @@ def auth():
             password = input("Enter password: ")
             scd_password = input("Repeat password: ")
             
-            if update_password(username, old_password, password, scd_password):
+            if update_user_password(username, old_password, password, scd_password):
                 space()
                 print("Password changed.")
                 print()
@@ -160,7 +160,7 @@ def service_details(service, user_id):
 
         if(choice == '1'):
             password = input("Enter password: ")
-            if(update_password(password, user_id, service[0])):
+            if(update_service_password(password, user_id, service[0])):
                 space()
                 print("Successfuly changed the password")
                 print()
