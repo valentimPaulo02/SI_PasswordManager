@@ -59,4 +59,23 @@ def update_password(password, user_id, service):
     
     finally:
         conn.close()
+
+
+def delete_service(user_id, service):
+    conn = make_connection()
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute('''
+        DELETE FROM accounts WHERE user_id = %s AND service = %s
+        ''', (user_id, service))
+        conn.commit()
+        return True
+    
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+        return False
+    
+    finally:
+        conn.close()
     

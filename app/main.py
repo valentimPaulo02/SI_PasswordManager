@@ -103,6 +103,7 @@ def service_display(user_id):
 
                 print("-------------------------")
                 print("-1. Create new Service")
+                print("-2. Delete Service")
                 print("0. Exit")
                 print("-------------------------")
                 choice = input("Choose an option: ")
@@ -111,7 +112,6 @@ def service_display(user_id):
                     service = input("Enter service name: ")
                     account_username = input("Enter account username: ")
                     account_password = input("Enter account password: (enter for automatic generation)")
-                    print(account_password)
                     if(create_service(user_id, service, account_username, account_password)):
                         space()
                         print("Successfuly created a new Service")
@@ -119,6 +119,18 @@ def service_display(user_id):
                     else:
                         space()
                         print("Couldn't create the Service")
+                        print()
+
+                if(choice == '-2'):
+                    service = input("Enter the service id that you want to delete: ")
+                    print()
+                    if(delete_service(user_id, services[int(service)-1][0])):
+                        space()
+                        print("Successfuly deleted the Service")
+                        print()
+                    else:
+                        space()
+                        print("Couldn't delete the Service")
                         print()
 
                 elif(1 <= int(choice) <= len(services)):
@@ -159,6 +171,7 @@ def service_details(service, user_id):
                 print()
 
         elif(choice == '0'):
+            space()
             break
 
         else:
